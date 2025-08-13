@@ -4,6 +4,8 @@ using HotelProject.WebUI.Dtos.AboutDto;
 using HotelProject.WebUI.Dtos.LoginDto;
 using HotelProject.WebUI.Dtos.RegisterDto;
 using HotelProject.WebUI.Dtos.ServiceDto;
+using HotelProject.WebUI.Dtos.StaffDto;
+using HotelProject.WebUI.Dtos.SubscribeDto;
 using Microsoft.Build.Framework.Profiler;
 
 namespace HotelProject.WebUI.Mapping
@@ -21,6 +23,10 @@ namespace HotelProject.WebUI.Mapping
 
             CreateMap<ResultAboutDto,About>().ReverseMap();
             CreateMap<UpdateAboutDto,About>().ReverseMap();
+
+            CreateMap<ResultStaffDto, Staff>().ReverseMap();
+
+            CreateMap<CreateSubscribeDto, Subscribe>().ReverseMap();
         }
     }
 }
