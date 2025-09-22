@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.14.36109.1 d17.14
+VisualStudioVersion = 17.14.36109.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ApiConsume", "ApiConsume", "{02EA681E-C7D8-13C7-8484-4AC65E1B71E8}"
 EndProject
@@ -23,6 +23,10 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HotelProject.DtoLayer", "ApiConsume\HotelProject.DtoLayer\HotelProject.DtoLayer.csproj", "{91D231A1-B071-4EF5-AE98-225651F080E9}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HotelProject.WebUI", "Frontend\HotelProject.WebUI\HotelProject.WebUI.csproj", "{02B7A6F6-3888-4C38-9E22-33F48D80133A}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "RapidApi", "RapidApi", "{6BBBE40E-573A-4DDF-B9DE-43D9CC1358A1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RapidApiConsume", "RapidApi\RapidApiConsume\RapidApiConsume.csproj", "{03EC838B-6477-4068-9440-67B86D7A20E4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -54,6 +58,10 @@ Global
 		{02B7A6F6-3888-4C38-9E22-33F48D80133A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{02B7A6F6-3888-4C38-9E22-33F48D80133A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{02B7A6F6-3888-4C38-9E22-33F48D80133A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{03EC838B-6477-4068-9440-67B86D7A20E4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{03EC838B-6477-4068-9440-67B86D7A20E4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{03EC838B-6477-4068-9440-67B86D7A20E4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{03EC838B-6477-4068-9440-67B86D7A20E4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -65,6 +73,7 @@ Global
 		{A8A97100-2F7D-40B1-8D02-04F3A5CA722D} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
 		{91D231A1-B071-4EF5-AE98-225651F080E9} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
 		{02B7A6F6-3888-4C38-9E22-33F48D80133A} = {89E8392B-76E8-481C-A017-D0442FB58314}
+		{03EC838B-6477-4068-9440-67B86D7A20E4} = {6BBBE40E-573A-4DDF-B9DE-43D9CC1358A1}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {B6336679-4C7D-45FD-A57F-2140482A0E89}

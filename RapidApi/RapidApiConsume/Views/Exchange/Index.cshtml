@@ -1,0 +1,76 @@
+﻿@model List<RapidApiConsume.Models.ExchangeViewModel.Exchange_Rates>
+
+@{
+    Layout = null;
+}
+
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f5f6fa;
+        padding: 20px;
+    }
+
+    h2 {
+        text-align: center;
+        margin-bottom: 20px;
+        color: #2f3640;
+    }
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        background-color: #fff;
+        border-radius: 8px;
+        overflow: hidden;
+    }
+
+    th, td {
+        padding: 12px 15px;
+        text-align: left;
+    }
+
+    th {
+        background-color: #273c75;
+        color: #fff;
+        text-transform: uppercase;
+        font-size: 14px;
+    }
+
+    tr:nth-child(even) {
+        background-color: #f1f2f6;
+    }
+
+    tr:hover {
+        background-color: #dcdde1;
+        transition: 0.3s;
+    }
+</style>
+
+<h2>Döviz Kurları (TRY Bazlı)</h2>
+
+@if (Model != null && Model.Any())
+{
+    <table>
+        <thead>
+            <tr>
+                <th>Para Birimi</th>
+                <th>Alış Kuru</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.Currency</td>
+                    <td>@item.ExchangeRateBuy</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    <p style="text-align:center; color:#e84118;">Döviz kuru verisi bulunamadı.</p>
+}
