@@ -1,0 +1,39 @@
+﻿@model List<RapidApiConsume.Models.BookingApiLocationSearchViewModel.DestinationResult>
+@{
+    Layout = null;
+}
+
+<link href="~/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
+
+<div class="container">
+    <br /><br />
+    @using (Html.BeginForm("Index", "SearchLocationID", FormMethod.Post))
+    {
+        <label>Şehir adını giriniz:</label>
+        <input type="text" class="form-control" name="cityName" placeholder="Örn: Istanbul" />
+        <br />
+        <button class="btn btn-primary">Şehrine göre ID Bul</button>
+    }
+
+    <br />
+    @if (Model != null && Model.Any())
+    {
+        <table class="table table-bordered">
+            <tr>
+                <th>Otel Adı</th>
+                <th>DestinationId</th>
+            </tr>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.Name</td>
+                    <td>@item.DestinationId</td>
+                </tr>
+            }
+        </table>
+    }
+    else
+    {
+        <p class="text-danger">Henüz sonuç bulunamadı.</p>
+    }
+</div>
