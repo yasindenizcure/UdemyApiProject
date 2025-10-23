@@ -2,27 +2,30 @@
 using HotelProject.DataAccessLayer.Concrete;
 using HotelProject.DataAccessLayer.Repositories;
 using HotelProject.EntityLayer.Concrete;
-using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace HotelProject.DataAccessLayer.EntityFramework
 {
     public class EfBookingDal : GenericRepository<Booking>, IBookingDal
     {
+        private readonly Context _context;
+
         public EfBookingDal(Context context) : base(context)
         {
-
+            _context = context;
         }
 
         public void BookingStatusChangeApproved(Booking booking)
         {
-            var context = new Context();
-            var values = context.Bookings.Where(x=>x.BookingId == booking.BookingId).FirstOrDefault();
+            var values = _context.Bookings.FirstOrDefault(x => x.BookingId == booking.BookingId);
+
+            if (values == null)
+            {
+                throw new InvalidOperationException($"Booking with id {booking.BookingId} not found.");
+            }
+
             values.Status = "Onaylandı";
-            context.SaveChanges();
+            _context.SaveChanges();
         }
     }
 }
