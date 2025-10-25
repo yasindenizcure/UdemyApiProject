@@ -39,7 +39,7 @@ namespace HotelProject.WebApi.Controllers
             _guestService.TDelete(guest);
             return NoContent();
         }
-        [HttpPut]
+        [HttpPut("{id}")]
         public IActionResult UpdateGuest(Guest guest)
         {
             _guestService.TUpdate(guest);

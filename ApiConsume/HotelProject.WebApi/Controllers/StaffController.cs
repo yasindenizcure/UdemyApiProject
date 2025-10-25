@@ -32,13 +32,27 @@ namespace HotelProject.WebApi.Controllers
         public IActionResult DeleteStaff(int id)
         {   
             var values = _staffService.TGetById(id);
+            if (values == null)
+            {
+                return NotFound($"ID {id} numaralı misafir bulunamadı.");
+            }
             _staffService.TDelete(values);
             return Ok();
         }
-        [HttpPut]
-        public IActionResult UpdateStaff(Staff staff)
+        [HttpPut("{id}")]
+        public IActionResult UpdateStaff(int id, Staff staff)
         {
-            _staffService.TUpdate(staff);
+            var existingStaff = _staffService.TGetById(id);
+            if (existingStaff == null)
+                return NotFound();
+
+            existingStaff.Name = staff.Name;
+            existingStaff.Title = staff.Title;
+            existingStaff.SocialMedia1 = staff.SocialMedia1;
+            existingStaff.SocialMedia2 = staff.SocialMedia2;
+            existingStaff.SocialMedia3 = staff.SocialMedia3;
+
+            _staffService.TUpdate(existingStaff);
             return Ok();
         }
         [HttpGet("{id}")]

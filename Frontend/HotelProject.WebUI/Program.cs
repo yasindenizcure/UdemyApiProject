@@ -12,7 +12,9 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddTransient<IValidator<CreateGuestDto>, GuestCreateValidator>();
 builder.Services.AddTransient<IValidator<UpdateGuestDto>, GuestUpdateValidator>();
-builder.Services.AddControllersWithViews().AddFluentValidation();
+builder.Services.AddControllersWithViews();
+builder.Services.AddFluentValidationAutoValidation();
+builder.Services.AddFluentValidationClientsideAdapters();
 builder.Services.AddHttpClient();
 
 builder.Services.AddAutoMapper(typeof(AutoMapperConfig));

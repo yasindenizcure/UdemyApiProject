@@ -39,20 +39,18 @@ namespace HotelProject.WebUI.Controllers
         {
             if (!ModelState.IsValid)
             {
-                var client = _httpClientFactory.CreateClient();
-                var jsonData = JsonConvert.SerializeObject(createGuestDto);
-                StringContent stringContent = new StringContent(jsonData, Encoding.UTF8, "application/json");
-                var responseMessage = await client.PostAsync("http://localhost:5088/api/Guest", stringContent);
-                if (responseMessage.IsSuccessStatusCode)
-                {
-                    return RedirectToAction("Index");
-                }
-                return View();
+                return View(createGuestDto);
             }
-            else
+            var client = _httpClientFactory.CreateClient();
+            var jsonData = JsonConvert.SerializeObject(createGuestDto);
+            StringContent stringContent = new StringContent(jsonData, Encoding.UTF8, "application/json");
+            var responseMessage = await client.PostAsync("http://localhost:5088/api/Guest", stringContent);
+            if (responseMessage.IsSuccessStatusCode)
             {
-                return View();
+                return RedirectToAction("Index");
             }
+
+            return View(createGuestDto);
         }
         public async Task<IActionResult> DeleteGuest(int id)
         {
@@ -73,22 +71,24 @@ namespace HotelProject.WebUI.Controllers
             }
             return View();
         }
-
         [HttpPost]
         public async Task<IActionResult> UpdateGuest(UpdateGuestDto updateGuestDto)
         {
             if (!ModelState.IsValid)
             {
-                var client = _httpClientFactory.CreateClient();
-                var jsonData = JsonConvert.SerializeObject(updateGuestDto);
-                StringContent stringContent = new StringContent(jsonData, Encoding.UTF8, "application/json");
-                var responseMessage = await client.PutAsync("http://localhost:5088/api/Guest", stringContent);
-                if (responseMessage.IsSuccessStatusCode)
-                {
-                    return RedirectToAction("Index");
-                }
+                return View(updateGuestDto);
             }
-            return View();
+
+            var client = _httpClientFactory.CreateClient();
+            var jsonData = JsonConvert.SerializeObject(updateGuestDto);
+            StringContent stringContent = new StringContent(jsonData, Encoding.UTF8, "application/json");
+            var responseMessage = await client.PutAsync($"http://localhost:5088/api/Guest/{updateGuestDto.GuestId}", stringContent);
+            if (responseMessage.IsSuccessStatusCode)
+            {
+                return RedirectToAction("Index");
+            }
+
+            return View(updateGuestDto);
         }
 
     }
