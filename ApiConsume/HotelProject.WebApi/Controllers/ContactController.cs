@@ -9,6 +9,7 @@ namespace HotelProject.WebApi.Controllers
     [ApiController]
     public class ContactController : ControllerBase
     {
+
         private readonly IContactService _contactService;
 
         public ContactController(IContactService contactService)
@@ -21,6 +22,12 @@ namespace HotelProject.WebApi.Controllers
             contact.Date= Convert.ToDateTime(DateTime.Now.ToString());
             _contactService.Insert(contact);
             return Ok();
+        }
+        [HttpGet]
+        public IActionResult InboxListContact()
+        {
+            var values = _contactService.GetList();
+            return Ok(values);
         }
     }
 }
