@@ -1,4 +1,5 @@
 ﻿using HotelProject.EntityLayer.Concrete;
+using Microsoft.EntityFrameworkCore.Query.Internal;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,5 +10,6 @@ namespace HotelProject.DataAccessLayer.Abstract
 {
     public interface IContactDal: IGenericDal<Contact>
     {
+        public int GetContactCount();
     }
 }
