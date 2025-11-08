@@ -47,6 +47,13 @@
                             </div>
                             <div class="col-12">
                                 <div class="form-floating">
+                                    @Html.DropDownListFor(x => x.MessageCategoryId, (List<SelectListItem>)ViewBag.v,  new { @class = "form-control", required = "required" })
+                                    <label for="MessageCategoryId">Konuyu Seçiniz</label>
+                                    <span asp-validation-for="MessageCategoryId" class="text-danger"></span>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="form-floating">
                                     <input type="text" class="form-control" id="subject" placeholder="Konu" name="Subject">
                                     <label for="subject">Konu</label>
                                 </div>

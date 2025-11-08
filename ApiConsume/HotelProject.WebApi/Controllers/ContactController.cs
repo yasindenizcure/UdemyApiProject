@@ -17,9 +17,10 @@ namespace HotelProject.WebApi.Controllers
             _contactService = contactService;
         }
         [HttpPost]
-        public IActionResult AddContact(Contact contact)
+        public IActionResult AddContact([FromBody]Contact contact)
         {
             contact.Date = Convert.ToDateTime(DateTime.Now.ToString());
+            contact.MessageCategory = null;
             _contactService.Insert(contact);
             return Ok();
         }
