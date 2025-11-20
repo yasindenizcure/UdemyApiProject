@@ -30,7 +30,7 @@ namespace HotelProject.WebApi.Controllers
         }
         [HttpDelete("{id}")]
         public IActionResult DeleteStaff(int id)
-        {   
+        {
             var values = _staffService.TGetById(id);
             if (values == null)
             {
@@ -60,6 +60,13 @@ namespace HotelProject.WebApi.Controllers
         {
             var values = _staffService.TGetById(id);
             return Ok(values);
+        }
+        [HttpGet("Last4Staff")]
+        public IActionResult GetLast4Staff()
+        {
+            var values = _staffService.TLast4Staff();
+            return Ok(values);
+
         }
     }
 }

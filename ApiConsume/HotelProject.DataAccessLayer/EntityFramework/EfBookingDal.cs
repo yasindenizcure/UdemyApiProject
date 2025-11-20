@@ -34,5 +34,12 @@ namespace HotelProject.DataAccessLayer.EntityFramework
             values.Status = "Onaylandı";
             _context.SaveChanges();
         }
+
+        public List<Booking> Last6Bookings()
+        {
+            var context = new Context();
+            var values = context.Bookings.OrderByDescending(x => x.BookingId).Take(6).ToList();
+            return values;
+        }
     }
 }
