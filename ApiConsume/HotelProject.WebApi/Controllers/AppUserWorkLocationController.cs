@@ -18,7 +18,6 @@ namespace HotelProject.WebApi.Controllers
         [HttpGet]
         public IActionResult Index()
         {
-            //var values = _appUserService.TUsersListWithWorkLocations();
             Context context = new Context();
             var values = context.Users.Include(x => x.WorkLocation).Select(y => new
             {
