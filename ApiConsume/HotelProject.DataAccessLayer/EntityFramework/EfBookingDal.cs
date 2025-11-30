@@ -21,27 +21,12 @@ namespace HotelProject.DataAccessLayer.EntityFramework
             var value = context.Bookings.Count();
             return value;
         }
-
-        public void BookingStatusChangeApproved(Booking booking)
-        {
-            var values = _context.Bookings.FirstOrDefault(x => x.BookingId == booking.BookingId);
-
-            if (values == null)
-            {
-                throw new InvalidOperationException($"Booking with id {booking.BookingId} not found.");
-            }
-
-            values.Status = "Onaylandı";
-            _context.SaveChanges();
-        }
-
-        public void BookingStatusChangeApproved2(int id)
+        public void BookingStatusChangeApproved(int id)
         {
             var context = new Context();
             var value = context.Bookings.Find(id);
             value.Status = "Onaylandı";
             context.SaveChanges();
-
         }
 
         public void BookingStatusChangeCancel(int id)

@@ -24,15 +24,11 @@ namespace HotelProject.BusinessLayer.Concrete
             
         }
 
-        public void TBookingStatusChangeApproved(Booking booking)
+        public void TBookingStatusChangeApproved(int id)
         {
-            throw new NotImplementedException();
+            _bookingDal.BookingStatusChangeApproved(id);
         }
 
-        public void TBookingStatusChangeApproved2(int id)
-        {
-            _bookingDal.BookingStatusChangeApproved2(id);
-        }
 
         public void TBookingStatusChangeCancel(int id)
         {
