@@ -26,7 +26,22 @@ namespace HotelProject.BusinessLayer.Concrete
 
         public void TBookingStatusChangeApproved(Booking booking)
         {
-            _bookingDal.BookingStatusChangeApproved(booking);
+            throw new NotImplementedException();
+        }
+
+        public void TBookingStatusChangeApproved2(int id)
+        {
+            _bookingDal.BookingStatusChangeApproved2(id);
+        }
+
+        public void TBookingStatusChangeCancel(int id)
+        {
+            _bookingDal.BookingStatusChangeCancel(id);
+        }
+
+        public void TBookingStatusChangeWait(int id)
+        {
+            _bookingDal.BookingStatusChangeWait(id);
         }
 
         public void TDelete(Booking t)
