@@ -7,8 +7,8 @@
 <table class="table table-bordered">
     <tr>
         <th>#</th>
-        <th>Başlık 1:</th>
-        <th>Başlık 2:</th>
+        <th>Ana Başlık:</th>
+        <th>Alt Başlık:</th>
         <th>Güncelle</th>
     </tr>
     @foreach (var item in Model)
@@ -18,7 +18,6 @@
             <td>@item.Title1</td>
             <td>@item.Title2</td>
             <td><a href="/AdminAbout/UpdateAbout/@item.AboutId" class="btn mb-1 btn-rounded btn-warning">Güncelle</a></td>
-            <td><a href="#" class="btn mb-1 btn-rounded btn-info">Detaylar</a></td>
         </tr>
     }
 </table>
